@@ -1,0 +1,50 @@
+{
+  "name": "@pequehq/grpc",
+  "version": "1.0.0",
+  "description": "Peque gRPC",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "build": "pnpm clean && tsc",
+    "clean": "rimraf coverage dist",
+    "test": "node --loader ts-node/esm ./node_modules/uvu/bin.js src .test.ts",
+    "test:coverage": "c8 pnpm test && make-coverage-badge --output-path ./coverage-badge.svg",
+    "test:integration": "node --loader ts-node/esm ./node_modules/uvu/bin.js test/integration .e2e.ts",
+    "lint": "eslint \"./{src,test}/**/*.ts\" --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pequehq/grpc.git"
+  },
+  "author": "Simone Di Cicco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pequehq/grpc/issues"
+  },
+  "homepage": "https://github.com/pequehq/grpc#readme",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.5.7",
+    "@grpc/proto-loader": "^0.6.9",
+    "reflect-metadata": "^0.1.13"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21",
+    "@typescript-eslint/eslint-plugin": "^5.14.0",
+    "@typescript-eslint/parser": "^5.14.0",
+    "c8": "^7.11.0",
+    "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "make-coverage-badge": "^1.2.0",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "sinon": "^13.0.1",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2",
+    "uvu": "^0.5.3"
+  }
+}
